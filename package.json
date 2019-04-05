@@ -1,0 +1,30 @@
+{
+  "name": "cybercitycomics",
+  "version": "1.0.0",
+  "description": "comics website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaiTang26/CyberCityComics.git"
+  },
+  "author": "Kai Tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KaiTang26/CyberCityComics/issues"
+  },
+  "homepage": "https://github.com/KaiTang26/CyberCityComics#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
