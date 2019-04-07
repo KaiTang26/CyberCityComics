@@ -24,6 +24,6 @@ Create a web server hosted on Heroku that serves web pages that display xkcd web
 For this project, Tech stach is MERN, which is MongoDB, Express.js, React.js, and Node.js.
 
 ## Webpage Screen:
-(/images/1.png)
+(/image/1.png)
 
 
