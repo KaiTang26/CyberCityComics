@@ -5,8 +5,8 @@
 ### Objective:
 Create a web server hosted on Heroku that serves web pages that display xkcd web comic strips.
 ### Requirements:
-* Use the xkcd API (see https://xkcd.com/json.html)     **Completed**- [x]
-* Has to be hosted on Heroku                            **Completed**- [x]
+* Use the xkcd API (see https://xkcd.com/json.html)     **Completed**- [Y]
+* Has to be hosted on Heroku                            **Completed**- [Y]
 * Has to be done in Javascript without Jquery           **Completed**- [x]
 * Homepage displays the latest comic                    **Completed**- [x]
 * Display 1 comic strip per page                        **Completed**- [x]
