@@ -1,25 +1,115 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Landing from './components/layout/Landing';
+import api from './utils/api';
 
 class App extends Component {
+  constructor(props){
+      super(props);
+      this.state={
+        data:{},
+        page:0,
+        maxPage:0
+      }
+  }
+
+  componentDidMount(){
+    api.fetchHome()
+        .then(res => {
+          console.log(res);
+          if (res){
+            this.setState({
+              data:res,
+              page:res.num,
+              maxPage:res.num
+            })
+          }
+         
+        })
+  }
+  clickHome=()=>{
+    if (this.state.page>0){
+      api.fetchHome()
+      .then(res=>{
+        this.setState({
+          data:res,
+          page:res.num
+        })
+      })
+    }
+  }
+  clickPrev=()=>{
+    if (this.state.page>0){
+      this.setState({page:this.state.page-1},()=>{
+        api.fetchPage(this.state.page)
+        .then(res=>{
+          this.setState({
+            data:res
+          })
+        })
+      })
+    }
+  }
+  clickNext=()=>{
+    if (this.state.page<this.state.maxPage){
+      this.setState({page:this.state.page+1},()=>{
+        api.fetchPage(this.state.page)
+        .then(res=>{
+          this.setState({
+            data:res
+          })
+        })
+      })
+    }
+  }
+  clickRandom=()=>{
+    const number=this.state.maxPage*Math.random();
+    this.setState({page:Math.round(number)},()=>{
+      api.fetchPage(this.state.page)
+      .then(res=>{
+        this.setState({
+          data:res
+        })
+      })
+    })
+  }
+
+  handleKeyDown=(event)=>{
+    const key = event.keyCode || event.which
+    if(key===13){
+      const value = event.target.value;
+      if(!isNaN(value)){
+        this.setState({page:value},()=>{
+            api.fetchPage(this.state.page)
+            .then(res=>{
+              this.setState({
+                data:res
+              })
+            })
+          })
+      }
+    }
+    
+  }
+
+  
+
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="topnav">
+          <div className="leftBar">
+            <div onClick={this.clickHome}>Home</div>
+            <div onClick={this.clickPrev}>Back</div>
+            <div onClick={this.clickNext}>Next</div>
+          </div>
+          <div className="rightBar">
+            <input placeholder="Enter page to search" type="text"  onKeyDown={this.handleKeyDown}/>
+            <div onClick={this.clickRandom}>Random</div>
+          </div>
+        </div>
+        <Landing data={this.state.data}/>
       </div>
     );
   }
