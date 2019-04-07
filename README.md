@@ -28,5 +28,6 @@ For this project, Tech stach is MERN, which is MongoDB, Express.js, React.js, an
 ## Webpage Screen:
 !["Page 1"](https://github.com/KaiTang26/CyberCityComics/blob/master/image/1.png)
 !["Page 2"](https://github.com/KaiTang26/CyberCityComics/blob/master/image/2.png)
+!["Page 3"](https://github.com/KaiTang26/CyberCityComics/blob/master/image/3.png)
 
 
