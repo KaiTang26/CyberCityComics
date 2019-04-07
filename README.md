@@ -1,5 +1,7 @@
 # CyberCityComics
 
+All of the requirements and bonus have been completed. for visiting this website, please use this link: https://secret-gorge-18477.herokuapp.com/
+
 ## Project Discription:
 
 ### Objective:
