@@ -79,7 +79,8 @@ class App extends Component {
     if(key===13){
       const value = event.target.value;
       if(!isNaN(value)){
-        this.setState({page:value},()=>{
+        if(value>0 && value<=this.state.maxPage){
+          this.setState({page:value},()=>{
             api.fetchPage(this.state.page)
             .then(res=>{
               this.setState({
@@ -87,6 +88,8 @@ class App extends Component {
               })
             })
           })
+
+        } 
       }
     }
     
